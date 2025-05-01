@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animated News Ticker</title>
+    
+    <!-- Link to External Stylesheets (If Needed) -->
+    <link rel="stylesheet" href="styles.css">  <!-- If you have a custom CSS file -->
+    
+    <style>
+        /* Boilerplate for the body and universal styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Container for the news ticker */
+        .news-ticker {
+            width: 100%;
+            overflow: hidden;
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Inside container for scrolling news */
+        .news-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-left 20s linear infinite;
+            font-size: 18px;
+        }
+
+        /* Keyframes for the scrolling animation */
+        @keyframes scroll-left {
+            from {
+                transform: translateX(100%); /* Start from the right side of the screen */
+            }
+            to {
+                transform: translateX(-100%); /* End at the left side of the screen */
+            }
+        }
+
+        /* Styling for individual news items */
+        .news-item {
+            display: inline-block;
+            padding-right: 40px; /* Add space between news items */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .news-content {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- News Ticker Section -->
+    <div class="news-ticker">
+        <div class="news-content">
+            <div class="news-item">Breaking News: New Stock Market Features Released!</div>
+            <div class="news-item">Market Update: Today's Trends and Insights.</div>
+            <div class="news-item">Tech News: AI Advancements in Financial Trading.</div>
+            <div class="news-item">Global News: World Stock Indices on the Rise.</div>
+            <div class="news-item">Tip of the Day: Diversifying Your Portfolio for Success.</div>
+        </div>
+    </div>
+
+    <!-- Optional: Include External Scripts (If Needed) -->
+    <script src="scripts.js"></script>  <!-- If you have custom JS -->
+</body>
+</html>

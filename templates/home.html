@@ -1,0 +1,380 @@
+{% extends "navbar.html" %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eaf4fd; /* Light blue background */
+        box-sizing: border-box; /* Ensures better box model management */
+    }
+
+    /* Centering the search container */
+    .mainbox {
+        background-image: url('/static/image/home_bgimg.png');
+        background-size: cover;
+        height: 25rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .head {
+        margin-top: 36px;
+        padding-top: 100px;
+    }
+
+    .boxhead {
+        font-size: 2.5rem; /* Adjusted for better readability */
+        font-weight: 600;
+        font-family: Hind, sans-serif;
+        margin: 0;
+    }
+
+    .boxpara {
+        font-weight: 600;
+        font-family: Hind, sans-serif;
+        margin-bottom: 20px; /* Added margin to create space for search bar */
+        font-size: 1.25rem; /* Responsive font size */
+    }
+
+    .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 20px;
+        margin: auto;
+    }
+
+    /* Search bar styling */
+    input {
+        padding: 12px 16px 12px 40px; /* Increased padding for better visibility */
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 24rem;
+        box-shadow: 0px 4px 10px rgba(11, 130, 230, 0.5);
+        background-color: white; /* White background for search bar */
+    }
+
+    /* Search icon inside the search bar */
+    .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #258fe8;
+    }
+
+    /* Suggestions box styling */
+    .suggestions {
+        position: absolute;
+        background: white;
+        width: 100%;
+        border: 1px solid #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+        display: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        border-radius: 4px;
+        top: 100%;
+        left: 0;
+    }
+
+    /* Accessibility improvements */
+    input:focus {
+        outline: 2px solid #3498db; /* Highlight on focus */
+    }
+
+    .suggestions div {
+        padding: 10px;
+        cursor: pointer;
+        font-size: 0.875rem; /* Slightly smaller font for better clarity */
+    }
+
+    .suggestions div:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Optional: Highlight when hovering */
+    .suggestions .active {
+        background-color: #333;
+        color: white;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .navtop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .navbar .navbar-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: #000;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        color: #0b82e6;
+    }
+
+    .navbar-toggler {
+        border: none;
+        background-color: transparent;
+    }
+
+    .navbar-toggler-icon {
+        background-color: #000;
+    }
+
+    /* News Ticker Section */
+    .news-ticker {
+        width: 100%;
+        overflow: hidden;
+        background-color: #0b82e6;
+        color: white;
+        font-family: Arial, sans-serif;
+        padding: 10px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .news-content {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scroll-left 35s linear infinite;
+        font-size: 1.125rem;
+    }
+
+    @keyframes scroll-left {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    .news-item {
+        display: inline-block;
+        padding-right: 40px;
+    }
+
+    /* Responsive adjustments for the news ticker */
+    @media (max-width: 768px) {
+        .news-ticker {
+            padding: 8px 0;
+        }
+        .news-content {
+            font-size: 1rem;
+        }
+    }
+
+    /* Responsive adjustments for containers */
+    @media (max-width: 768px) {
+        .mainbox {
+            height: 20rem;
+            padding: 10px;
+        }
+
+        .boxhead {
+            font-size: 2rem; /* Smaller font for smaller screens */
+        }
+
+        .boxpara {
+            font-size: 1rem; /* Slightly smaller font size for better fitting */
+            margin-bottom: 15px;
+        }
+
+        .search-container input {
+            max-width: 100%;
+            font-size: 0.9rem; /* Smaller input field on mobile */
+        }
+
+        .navbar-nav {
+            text-align: center;
+        }
+
+        .navbar-nav li {
+            display: block;
+            margin-left: 0;
+            padding: 10px 0;
+        }
+
+        .navbar-nav li a {
+            font-size: 1rem;
+        }
+
+        .navbar-toggler {
+            margin-left: auto;
+        }
+    }
+
+    /* Larger screen adjustments */
+    @media (min-width: 1024px) {
+        .mainbox {
+            height: 30rem; /* Taller box for larger screens */
+        }
+
+        .boxhead {
+            font-size: 3rem; /* Larger font for wider screens */
+        }
+
+        .boxpara {
+            font-size: 1.5rem;
+        }
+
+        .search-container input {
+            max-width: 28rem;
+        }
+    }
+</style>
+
+<!-- News Ticker Section -->
+<div class="news-ticker">
+    <div class="news-content">
+        <div class="news-item">Apple announces $500B U.S. investment to boost jobs and AI.</div>
+        <div class="news-item">Global stock exchanges see shifts in market capitalization.</div>
+        <div class="news-item">India's NSE ranks among top 5 global stock exchanges.</div>
+        <div class="news-item">Nvidia stock falls ahead of earnings report.</div>
+        <div class="news-item">Bitcoin drops below $90,000, hitting its lowest point since November amid ongoing market struggles.</div>
+    </div>
+</div>
+
+<div class="container mainbox">
+    <div class="head">
+        <h1 class='boxhead'>Investing Ka Search Engine</h1>
+        <p class='boxpara'>The Modern Stock Screener that helps you pick better stocks.</p>
+    </div>
+    <div class="search-container">
+        <!-- Search icon -->
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchBox" placeholder="Type a Company Name or Brand to Search" onkeyup="showSuggestions()">
+        <div class="suggestions" id="suggestionBox"></div>
+    </div>
+</div>
+
+<!--realtime share-->
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        {
+          "description": "Tesla",
+          "proName": "NASDAQ:TSLA"
+        },
+        {
+          "description": "Apple Inc",
+          "proName": "NASDAQ:AAPL"
+        },
+        {
+          "description": "Nvidia",
+          "proName": "NASDAQ:NVDA"
+        },
+        {
+          "description": "Microsoft",
+          "proName": "NASDAQ:MSFT"
+        },
+        {
+          "description": "Advanced Micro Devices",
+          "proName": "NASDAQ:AMD"
+        },
+        {
+          "description": "Meta",
+          "proName": "NASDAQ:META"
+        },
+        {
+          "description": "Netflix",
+          "proName": "NASDAQ:NFLX"
+        }
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "light",
+      "isTransparent": false,
+      "displayMode": "compact",
+      "locale": "en"
+    }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+<script>
+    // List of items with corresponding URLs
+    const items = [
+        { name: "Apple", url: "/apple/" },
+
+        { name: "Reliance", url: "/Reliance/" },
+
+        { name: "gold", url: "/gold/" },
+    ];
+
+    function showSuggestions() {
+        const input = document.getElementById("searchBox").value.toLowerCase();
+        const suggestionBox = document.getElementById("suggestionBox");
+
+        // Clear previous suggestions
+        suggestionBox.innerHTML = "";
+        if (input === "") {
+            suggestionBox.style.display = "none";
+            return;
+        }
+
+        const filteredItems = items.filter(item => item.name.toLowerCase().includes(input));
+
+        if (filteredItems.length > 0) {
+            suggestionBox.style.display = "block";
+            filteredItems.forEach(item => {
+                const div = document.createElement("div");
+                div.textContent = item.name;
+                div.onclick = () => {
+                    window.location.href = item.url; // Redirect to item page
+                };
+                suggestionBox.appendChild(div);
+            });
+        } else {
+            suggestionBox.style.display = "none";
+            const noResultDiv = document.createElement("div");
+            noResultDiv.textContent = "No suggestions found.";
+            suggestionBox.appendChild(noResultDiv);
+        }
+    }
+</script>
+
+{% endblock %}

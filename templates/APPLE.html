@@ -1,0 +1,216 @@
+{% extends "navbar.html" %}
+
+{% load static %}
+
+{% block content %}
+<style>
+  .aplclass{
+    height: 3rem;
+    
+  }
+  .aplpara{
+    color:black;
+    
+  }
+  .nav-link{
+  font-family:sans-serif;
+  }
+  table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #222;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+th, td {
+    padding: 15px;
+    border: 1px solid #333;
+    text-align: left;
+}
+th {
+    background-color: #007BFF;
+}
+tr:nth-child(even) {
+    background-color: #333;
+}
+tr:hover {
+    background-color: #444;
+    transition: 0.3s;
+}
+.chartrw{
+  height:27rem;
+}
+
+.logosec{
+  padding:12px;
+}
+</style><div class="container text-center c pt-5"> <!-- Added pt-5 for padding-top -->
+  <div class="row">
+    <div class="col">
+      <img src="{% static 'logo/apple.png' %}" alt="Login Image" class="logo" style="max-width: 50px; height: auto;">
+    </div>
+    <div class="col">
+      <p class="fw-bold">Apple</p>
+    </div>
+  </div>
+</div>
+
+
+  <!-- chat section -->
+  
+
+
+  <!--scrooll the chat section-->
+  <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+    <h4 id="scrollspyHeading1"></h4>
+    <div class="container text-center" style="margin-top: 20px;">
+
+      <div class="row">
+        <div class="col-sm-8 chartrw"><!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container" style="height:100%;width:100%">
+            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+            "autosize": true,
+            "symbol": "NASDAQ:AAPL",
+            "timezone": "Etc/UTC",
+            "theme": "light",
+            "style": "2",
+            "locale": "en",
+            "withdateranges": true,
+            "range": "ALL",
+            "hide_side_toolbar": false,
+            "allow_symbol_change": true,
+            "save_image": false,
+            "details": true,
+            "hotlist": true,
+            "calendar": false,
+            "show_popup_button": true,
+            "popup_width": "1000",
+            "popup_height": "650",
+            "support_host": "https://www.tradingview.com"
+          }
+            </script>
+          </div>
+          <!-- TradingView Widget END --></div>
+  <!-- TradingView Widget END -->
+        <div class="col-sm-4">
+          <!-- TradingView Widget BEGIN -->
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+    {
+    "symbol": "NASDAQ:AAPL",
+    "width": 350,
+    "isTransparent": false,
+    "colorTheme": "light",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+   
+  <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+  {
+  "interval": "1m",
+  "width": 425,
+  "isTransparent": false,
+  "height": 450,
+  "symbol": "NASDAQ:AAPL",
+  "showIntervalTabs": true,
+  "displayMode": "single",
+  "locale": "en",
+  "colorTheme": "light"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+  <!-- TradingView Widget END -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <h2>Apple Inc. Financial Metrics </h2>
+
+  <table>
+      <tr>
+          <th>Financial Metric</th>
+          <th>Value</th>
+      </tr>
+      <tr>
+          <td>Market Capitalization</td>
+          <td>$3.69 Trillion</td>
+      </tr>
+      <tr>
+          <td>Enterprise Value</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Price-to-Earnings (P/E) Ratio</td>
+          <td>39.04</td>
+      </tr>
+      <tr>
+          <td>Price-to-Sales (P/S) Ratio</td>
+          <td>9.40</td>
+      </tr>
+      <tr>
+          <td>Dividend Yield</td>
+          <td>0.40%</td>
+      </tr>
+      <tr>
+          <td>Book Value (TTM)</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Debt</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Promoter Holding</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Sales Growth</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Return on Equity (ROE)</td>
+          <td>145.35%</td>
+      </tr>
+      <tr>
+          <td>Profit Growth</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Cash</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Earnings Per Share (EPS) (TTM)</td>
+          <td>$2.40</td>
+      </tr>
+      <tr>
+          <td>Return on Capital Employed (ROCE)</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Number of Shares</td>
+          <td>Data not available</td>
+      </tr>
+      <tr>
+          <td>Face Value</td>
+          <td>Data not available</td>
+      </tr>
+  </table>
+{% endblock %}

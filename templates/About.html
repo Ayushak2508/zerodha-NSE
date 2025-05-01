@@ -1,0 +1,64 @@
+{% extends "navbar.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    :root {
+        --bg-color: #ffffff;
+        --text-color: #000000;
+    }
+
+    [data-theme="dark"] {
+        --bg-color: #121212;
+        --text-color: #ffffff;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: 0.3s;
+        padding: 40px;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    #theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #444;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+</style>
+
+<button id="theme-toggle">Toggle Theme</button>
+
+<h1>About Us</h1>
+<p>We build sleek, data-driven tools that empower investors and traders to make informed decisions, faster and smarter.</p>
+<p>Inspired by platforms like TradingView, our goal is to deliver intuitive, visually clean, and powerful experiences that bring market analysis to life.</p>
+
+<script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const current = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", current);
+
+    toggleBtn.onclick = () => {
+        const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    };
+</script>
+{% endblock %}

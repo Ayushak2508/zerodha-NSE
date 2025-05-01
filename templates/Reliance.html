@@ -1,0 +1,253 @@
+{% extends "navbar.html" %}
+
+{% load static %}
+
+{% block content %}
+<style>
+  .aplclass {
+    height: 3rem;
+  }
+  .aplpara {
+    color: black;
+  }
+  .nav-link {
+    font-family: sans-serif;
+  }
+  .card {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #e3f2fd; /* Light blue border */
+  }
+  .star {
+    font-size: 20px;
+    color: #e0e0e0; /* Default gray color for unfilled stars */
+  }
+  .star.filled {
+    color: #007bff; /* Blue color for filled stars */
+  }
+  .info-icon {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  .col-sm-8 {
+    height: 22rem;
+  }
+
+  .spstable{
+    color: green;
+  }
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+            transition: 0.3s;
+</style>
+
+<div class="container text-center c pt-5"> <!-- Added pt-5 for padding-top -->
+  <div class="row">
+    <div class="col">
+      <img src="{% static 'logo/logore.png' %}" alt="Login Image" class="logo" style="max-width: 50px; height: auto;">
+    </div>
+    <div class="col">
+      <p class="fw-bold">reliance</p>
+    </div>
+  </div>
+</div>
+
+
+<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+  <h4 id="scrollspyHeading1"></h4>
+  <div class="container text-center" style="margin-top: 20px;">
+    <div class="row">
+      <div class="col-sm-8">
+        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+  <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+  {
+  "autosize": true,
+  "symbol": "NASDAQ:AAPL",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "light",
+  "style": "1",
+  "locale": "en",
+  "allow_symbol_change": true,
+  "details": true,
+  "calendar": false,
+  "support_host": "https://www.tradingview.com"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+      </div>
+      <div class="col-sm-4">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+            {
+              "symbol": "NSE:RELIANCE1!",
+              "width": 350,
+              "isTransparent": false,
+              "colorTheme": "dark",
+              "locale": "en"
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <h4 id="scrollspyHeading2"></h4>
+    <div class="row row-cols-2">
+      <div class="col">
+        <div class="container mt-5">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="badge badge-info spstable">Stable</span>
+                <strong>Ownership</strong>
+              </div>
+              <div>
+                <span class="info-icon" data-toggle="tooltip" title="ke hall haibhai ke" alt="Ownership">ℹ️</span>
+              </div>
+            </div>
+            <div class="rating mt-2">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star">☆</span>
+              <span class="star">☆</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ensure this column is closed properly -->
+      <div class="col">
+        <div class="container mt-5">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="badge badge-info spstable">Stable</span>
+                <strong>Dividend</strong>
+              </div>
+              <div>
+                <span class="info-icon" data-toggle="tooltip" title="ke hall haibhai ke" alt="Dividend">ℹ️</span>
+              </div>
+            </div>
+            <div class="rating mt-2">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star">☆</span>
+              <span class="star">☆</span>
+              <span class="star">☆</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
+
+
+
+<table>
+    <tr>
+        <th>Company Essentials</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td>Market Cap</td>
+        <td>₹ 16,29,297.70 Cr.</td>
+    </tr>
+    <tr>
+        <td>Enterprise Value</td>
+        <td>₹ 17,71,839.70 Cr.</td>
+    </tr>
+    <tr>
+        <td>P/E</td>
+        <td>46.12</td>
+    </tr>
+    <tr>
+        <td>P/B</td>
+        <td>3.02</td>
+    </tr>
+    <tr>
+        <td>Dividend Yield</td>
+        <td>0.42%</td>
+    </tr>
+    <tr>
+        <td>Book Value (TTM)</td>
+        <td>₹ 398.90</td>
+    </tr>
+    <tr>
+        <td>Debt</td>
+        <td>₹ 2,11,790 Cr.</td>
+    </tr>
+    <tr>
+        <td>Promoter Holding</td>
+        <td>50.13%</td>
+    </tr>
+    <tr>
+        <td>Sales Growth</td>
+        <td>-0.89%</td>
+    </tr>
+    <tr>
+        <td>ROE</td>
+        <td>8.46%</td>
+    </tr>
+    <tr>
+        <td>Profit Growth</td>
+        <td>-2.23%</td>
+    </tr>
+    <tr>
+        <td>Cash</td>
+        <td>₹ 69,248 Cr.</td>
+    </tr>
+    <tr>
+        <td>EPS (TTM)</td>
+        <td>₹ 26.11</td>
+    </tr>
+    <tr>
+        <td>ROCE</td>
+        <td>9.66%</td>
+    </tr>
+    <tr>
+        <td>No. of Shares</td>
+        <td>1,353.24 Cr.</td>
+    </tr>
+    <tr>
+        <td>Face Value</td>
+        <td>₹ 10</td>
+    </tr>
+</table>
+{% endblock %}
